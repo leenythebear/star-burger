@@ -3,6 +3,10 @@ from django.templatetags.static import static
 
 import json
 
+from rest_framework import permissions
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.response import Response
+
 from .models import Product, Order, OrderProducts
 
 
@@ -58,8 +62,11 @@ def product_list_api(request):
     })
 
 
+@api_view(['POST'])
+@permission_classes((permissions.AllowAny,))
 def register_order(request):
-    order = json.loads(request.body.decode())
+    order = request.data
+    print(order)
     saved_order = Order.objects.create(firstname=order['firstname'],
                                        lastname=order['lastname'],
                                        phonenumber=order['phonenumber'],
@@ -68,4 +75,4 @@ def register_order(request):
         OrderProducts.objects.create(order=saved_order,
                                      product=Product.objects.get(pk=product['product']),
                                      quantity=product['quantity'])
-    return JsonResponse({})
+    return Response({})
