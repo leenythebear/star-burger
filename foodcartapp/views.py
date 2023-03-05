@@ -3,7 +3,7 @@ from django.templatetags.static import static
 
 import json
 
-from rest_framework import permissions
+from rest_framework import permissions, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
@@ -66,7 +66,27 @@ def product_list_api(request):
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
     order = request.data
-    print(order)
+    if 'products' not in order:
+        return Response(
+            {'error': 'products: Обязательное поле.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    elif order['products'] is None:
+        return Response(
+            {'error': 'products: Это поле не может быть пустым.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    elif not isinstance(order['products'], list):
+        return Response(
+            {'error': 'products: Ожидался list со значениями, но был получен "str"'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    elif len(order['products']) == 0:
+        return Response(
+            {'error': 'products: Этот список не может быть пустым.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+
     saved_order = Order.objects.create(firstname=order['firstname'],
                                        lastname=order['lastname'],
                                        phonenumber=order['phonenumber'],
