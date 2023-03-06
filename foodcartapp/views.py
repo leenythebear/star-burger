@@ -1,7 +1,10 @@
+from collections import defaultdict
+
 from django.http import JsonResponse
 from django.templatetags.static import static
 
-import json
+from phonenumber_field.phonenumber import PhoneNumber
+from phonenumbers import NumberParseException
 
 from rest_framework import permissions, status
 from rest_framework.decorators import api_view, permission_classes
@@ -62,30 +65,58 @@ def product_list_api(request):
     })
 
 
+def is_correct_field(data, field_name, field_type):
+    if field_name not in data:
+        return f'`{field_name}` Обязательное поле.'
+    elif not data[field_name]:
+        return f'`{field_name}` Это поле не может быть пустым'
+    elif not isinstance(data[field_name], field_type):
+        return f'`{field_name}` Поле должно быть {field_type}'
+    return ''
+
+
 @api_view(['POST'])
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
     order = request.data
-    if 'products' not in order:
-        return Response(
-            {'error': 'products: Обязательное поле.'},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    elif order['products'] is None:
-        return Response(
-            {'error': 'products: Это поле не может быть пустым.'},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    elif not isinstance(order['products'], list):
-        return Response(
-            {'error': 'products: Ожидался list со значениями, но был получен "str"'},
-            status=status.HTTP_400_BAD_REQUEST
-        )
-    elif len(order['products']) == 0:
-        return Response(
-            {'error': 'products: Этот список не может быть пустым.'},
-            status=status.HTTP_400_BAD_REQUEST
-        )
+    errors = defaultdict(set)
+    fields = {
+        'firstname': str,
+        'lastname': str,
+        'phonenumber': str,
+        'address': str,
+        'products': list
+    }
+    for field_name, field_type in fields.items():
+        error = is_correct_field(order, field_name, field_type)
+        if error:
+            errors[field_name].add(error)
+    if 'phonenumber' in order and isinstance(order['phonenumber'], str):
+        try:
+            phonenumber = PhoneNumber.from_string(order['phonenumber'], 'RU')
+            if not phonenumber.is_valid():
+                errors['phonenumber'].add('Введен некорректный номер телефона.')
+        except NumberParseException:
+            errors['phonenumber'].add('Введен некорректный номер телефона.')
+
+    product_ids = Product.objects.all().values_list('id', flat=True)
+    for product in order['products']:
+        error = is_correct_field(product, 'product', int)
+        if error:
+            errors['products'].add(error)
+        else:
+            if product['product'] not in product_ids:
+                errors['products'].add(f"Заказ с несуществующим id продукта."
+                                       f"Недопустимый первичный ключ {product['product']}")
+        error = is_correct_field(product, 'quantity', int)
+        if error:
+            errors['products'].add(error)
+        else:
+            if product['quantity'] < 1:
+                errors['products'].add('Количество продуктов должно быть больше 0')
+
+    if errors:
+        return Response({'errors': errors}, status=status.HTTP_400_BAD_REQUEST)
 
     saved_order = Order.objects.create(firstname=order['firstname'],
                                        lastname=order['lastname'],
