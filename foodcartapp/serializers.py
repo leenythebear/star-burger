@@ -10,7 +10,7 @@ class OrderProductsSerializer(ModelSerializer):
 
 
 class OrderSerializer(ModelSerializer):
-    products = OrderProductsSerializer(many=True, allow_empty=False)  # обратите внимание на many=True
+    products = OrderProductsSerializer(many=True, allow_empty=False, write_only=True)  # обратите внимание на many=True
 
     class Meta:
         model = Order

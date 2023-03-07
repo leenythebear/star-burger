@@ -61,16 +61,6 @@ def product_list_api(request):
     })
 
 
-def is_correct_field(data, field_name, field_type):
-    if field_name not in data:
-        return f'`{field_name}` Обязательное поле.'
-    elif not data[field_name]:
-        return f'`{field_name}` Это поле не может быть пустым'
-    elif not isinstance(data[field_name], field_type):
-        return f'`{field_name}` Поле должно быть {field_type}'
-    return ''
-
-
 @api_view(['POST'])
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
@@ -85,4 +75,5 @@ def register_order(request):
         OrderProducts.objects.create(order=saved_order,
                                      product=product['product'],
                                      quantity=product['quantity'])
-    return Response({})
+    serializer = OrderSerializer(saved_order)
+    return Response(serializer.data)
