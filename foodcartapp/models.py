@@ -157,6 +157,7 @@ class Order(models.Model):
     address = models.CharField(max_length=200, db_index=True)
     objects = OrderQuerySet.as_manager()
     status = models.CharField(max_length=50, verbose_name='Статус', choices=STATUS_CHOICES, default=CREATED)
+    comment = models.TextField(verbose_name='Комментарий', blank=True)
 
     def __str__(self):
         return f"{self.firstname}  {self.lastname}"
