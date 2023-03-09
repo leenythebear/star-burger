@@ -129,7 +129,7 @@ class OrderQuerySet(models.QuerySet):
     def total_price(self):
         total_prices = self.annotate(
             total_price=Sum(
-                F('products__product__price') * F('products__quantity'),
+                F('products__price') * F('products__quantity'),
                 output_field=DecimalField()
             )
         )
@@ -151,6 +151,7 @@ class OrderProducts(models.Model):
     order = models.ForeignKey(Order, verbose_name='Заказ', related_name='products', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, verbose_name='Продукт', on_delete=models.CASCADE)
     quantity = models.IntegerField(verbose_name='Количество')
+    price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, validators=[MinValueValidator(0)])
 
     def __str__(self):
         return f"{self.product} {self.quantity}"
