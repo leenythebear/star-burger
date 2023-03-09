@@ -121,7 +121,7 @@ class OrderProductsInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['firstname', 'lastname', 'pk', 'phonenumber', 'address']
+    list_display = ['firstname', 'lastname', 'pk', 'phonenumber', 'address', 'status']
     inlines = [OrderProductsInline]
 
     def response_post_save_change(self, request, obj):

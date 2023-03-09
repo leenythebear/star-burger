@@ -137,11 +137,26 @@ class OrderQuerySet(models.QuerySet):
 
 
 class Order(models.Model):
+    CREATED = "CREATED"
+    ACCEPTED = "ACCEPTED"
+    PREPARING = "PREPARING"
+    READY = "READY"
+    DELIVERING = "DELIVERING"
+    FINISHED = 'FINISHED'
+    STATUS_CHOICES = [
+        ('CREATED', 'Создан'),
+        ('ACCEPTED', 'Подтвержден'),
+        ('PREPARING', 'Готовится'),
+        ('READY', 'Готов'),
+        ('DELIVERING', 'Доставляется'),
+        ('FINISHED', 'Закончен')
+    ]
     firstname = models.CharField(max_length=200, verbose_name='Имя', db_index=True, null=False)
     lastname = models.CharField(max_length=200, verbose_name='Фамилия', db_index=True)
     phonenumber = PhoneNumberField(verbose_name='Телефон', db_index=True)
     address = models.CharField(max_length=200, db_index=True)
     objects = OrderQuerySet.as_manager()
+    status = models.CharField(max_length=50, verbose_name='Статус', choices=STATUS_CHOICES, default=CREATED)
 
     def __str__(self):
         return f"{self.firstname}  {self.lastname}"
