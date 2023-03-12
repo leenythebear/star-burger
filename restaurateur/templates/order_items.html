@@ -38,13 +38,12 @@
         <td>
           {% if item.responsible_restaurant %}
           Готовит: {{ item.responsible_restaurant }}
-          {%
           {% else %}
           <details>
             <summary>Может быть приготовлен ресторанами:</summary>
             <ul>
               {% for restaurant in item.restaurants %}
-            <li>{{ restaurant }}</li>
+            <li>{{ restaurant.name }} - {{restaurant.distance}} km </li>
               {% endfor %}
             </ul>
           </details>
