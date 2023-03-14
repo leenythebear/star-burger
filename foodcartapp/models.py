@@ -184,6 +184,10 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.firstname}  {self.lastname}"
 
+    class Meta:
+        verbose_name = 'заказ'
+        verbose_name_plural = 'заказы'
+
 
 class OrderProducts(models.Model):
     order = models.ForeignKey(Order, verbose_name='Заказ', related_name='products', on_delete=models.CASCADE)
@@ -194,3 +198,6 @@ class OrderProducts(models.Model):
     def __str__(self):
         return f"{self.product} {self.quantity}"
 
+    class Meta:
+        verbose_name = 'товар в заказе'
+        verbose_name_plural = 'товары в заказе '
