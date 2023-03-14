@@ -6,12 +6,20 @@ from foodcartapp.models import OrderProducts, Order
 class OrderProductsSerializer(ModelSerializer):
     class Meta:
         model = OrderProducts
-        fields = ['id', 'product', 'quantity']
+        fields = ["id", "product", "quantity"]
 
 
 class OrderSerializer(ModelSerializer):
-    products = OrderProductsSerializer(many=True, allow_empty=False, write_only=True)  # обратите внимание на many=True
+    products = OrderProductsSerializer(
+        many=True, allow_empty=False, write_only=True
+    )
 
     class Meta:
         model = Order
-        fields = ['firstname', 'lastname', 'phonenumber', 'address', 'products']
+        fields = [
+            "firstname",
+            "lastname",
+            "phonenumber",
+            "address",
+            "products",
+        ]

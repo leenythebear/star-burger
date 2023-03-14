@@ -8,19 +8,24 @@ from star_burger import settings
 
 def fetch_coordinates(api_key, address):
     base_url = "https://geocode-maps.yandex.ru/1.x"
-    response = requests.get(base_url, params={
-        "geocode": address,
-        "apikey": api_key,
-        "format": "json",
-    })
+    response = requests.get(
+        base_url,
+        params={
+            "geocode": address,
+            "apikey": api_key,
+            "format": "json",
+        },
+    )
     response.raise_for_status()
-    found_places = response.json()['response']['GeoObjectCollection']['featureMember']
+    found_places = response.json()["response"]["GeoObjectCollection"][
+        "featureMember"
+    ]
 
     if not found_places:
         return None
 
     most_relevant = found_places[0]
-    lon, lat = most_relevant['GeoObject']['Point']['pos'].split(" ")
+    lon, lat = most_relevant["GeoObject"]["Point"]["pos"].split(" ")
     return lon, lat
 
 
@@ -54,5 +59,5 @@ def get_distance(customer_coordinates, restaurant_coordinates):
     restaurant_lat, restaurant_lon = restaurant_coordinates
     for coord in [customer_lat, customer_lon, restaurant_lat, restaurant_lon]:
         if coord is None:
-            return 'Ошибка определения координат'
+            return "Ошибка определения координат"
     return distance.distance(customer_coordinates, restaurant_coordinates)
