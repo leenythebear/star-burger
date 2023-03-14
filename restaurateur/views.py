@@ -9,7 +9,7 @@ from django.contrib.auth import views as auth_views
 
 
 from foodcartapp.models import Product, Restaurant, Order, RestaurantMenuItem
-from restaurateur.utils.geocoder import fetch_coordinates, get_distance
+from restaurateur.utils.geocoder import get_distance, get_coordinates_from_db_or_api
 
 
 class Login(forms.Form):
@@ -99,7 +99,7 @@ def view_orders(request):
         restaurants = set()
         restaurants_with_coords = []
         if not order.responsible_restaurant:
-            customer_coords = fetch_coordinates(order.address)
+            customer_coords = get_coordinates_from_db_or_api(order.address)
             for product in order.products.all():
                 available_restaurants = RestaurantMenuItem.objects.filter(product=product.product).values_list('restaurant__name', 'restaurant__address')
 
@@ -108,8 +108,14 @@ def view_orders(request):
                 else:
                     restaurants &= set(available_restaurants)
             for restaurant in restaurants:
-                restaurant_coords = fetch_coordinates(restaurant[1])
-                restaurant_with_coords = {'name': restaurant[0], 'distance': round(get_distance(customer_coords, restaurant_coords).km, 1)}
+                restaurant_coords = get_coordinates_from_db_or_api(restaurant[1])
+                distance = get_distance(customer_coords, restaurant_coords)
+                if isinstance(distance, str):
+                    restaurant_with_coords = {'name': restaurant[0],
+                                              'distance_error': distance}
+                else:
+                    restaurant_with_coords = {'name': restaurant[0],
+                                              'distance': round(distance.km, 1)}
                 restaurants_with_coords.append(restaurant_with_coords)
 
         order_items = {'id': order.id, 'status': order.get_status_display(), 'payment_type': order.get_payment_type_display(),
