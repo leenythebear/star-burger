@@ -131,3 +131,11 @@ class OrderAdmin(admin.ModelAdmin):
         else:
             return res
 
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        if obj.responsible_restaurant:
+            obj.status = Order.PREPARING
+            obj.save()
+
+
+
