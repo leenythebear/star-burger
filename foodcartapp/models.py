@@ -139,14 +139,12 @@ class OrderQuerySet(models.QuerySet):
 
 class Order(models.Model):
     CREATED = "CREATED"
-    ACCEPTED = "ACCEPTED"
     PREPARING = "PREPARING"
     READY = "READY"
     DELIVERING = "DELIVERING"
     FINISHED = 'FINISHED'
     STATUS_CHOICES = [
         ('CREATED', 'Создан'),
-        ('ACCEPTED', 'Подтвержден'),
         ('PREPARING', 'Готовится'),
         ('READY', 'Готов'),
         ('DELIVERING', 'Доставляется'),
