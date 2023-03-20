@@ -127,19 +127,19 @@ class Order(models.Model):
     DELIVERING = "DELIVERING"
     FINISHED = "FINISHED"
     STATUS_CHOICES = [
-        ("CREATED", "Создан"),
-        ("PREPARING", "Готовится"),
-        ("READY", "Готов"),
-        ("DELIVERING", "Доставляется"),
-        ("FINISHED", "Закончен"),
+        (CREATED, "Создан"),
+        (PREPARING, "Готовится"),
+        (READY, "Готов"),
+        (DELIVERING, "Доставляется"),
+        (FINISHED, "Закончен"),
     ]
     CASH = "CASH"
     CARD = "CARD"
-    NOT_CHOOSEN = "NOT_CHOOSEN"
+    NOT_CHOSEN = "NOT_CHOSEN"
     PAYMENT_CHOICES = [
-        ("CASH", "Наличными курьеру"),
-        ("CARD", "Картой онлайн"),
-        ("NOT_CHOOSEN", "Не выбран"),
+        (CASH, "Наличными курьеру"),
+        (CARD, "Картой онлайн"),
+        (NOT_CHOSEN, "Не выбран"),
     ]
 
     firstname = models.CharField(
@@ -171,7 +171,7 @@ class Order(models.Model):
         max_length=50,
         verbose_name="Способ оплаты",
         choices=PAYMENT_CHOICES,
-        default=NOT_CHOOSEN,
+        default=NOT_CHOSEN,
     )
     responsible_restaurant = models.ForeignKey(
         Restaurant,
