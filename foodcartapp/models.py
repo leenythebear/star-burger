@@ -150,7 +150,6 @@ class Order(models.Model):
     )
     phonenumber = PhoneNumberField(verbose_name="Телефон", db_index=True)
     address = models.CharField(max_length=200, db_index=True)
-    objects = OrderQuerySet.as_manager()
     status = models.CharField(
         max_length=50,
         verbose_name="Статус",
@@ -181,6 +180,8 @@ class Order(models.Model):
         null=True,
         blank=True,
     )
+
+    objects = OrderQuerySet.as_manager()
 
     def __str__(self):
         return f"{self.firstname}  {self.lastname}"
