@@ -9,6 +9,7 @@ from django.contrib.auth import views as auth_views
 
 
 from foodcartapp.models import Product, Restaurant, Order, RestaurantMenuItem
+from foodcartapp.serializers import OrderItemsSerializer
 from restaurateur.utils.geocoder import (
     get_distance,
     get_coordinates_from_db_or_api,
@@ -147,20 +148,10 @@ def view_orders(request):
                         "distance": distance,
                     }
                 restaurants_with_coords.append(restaurant_with_coords)
+        order_items = OrderItemsSerializer(order).data
+        order_items['restaurants'] = restaurants_with_coords
+        order_items['total_price'] = order.total_price
 
-        order_items = {
-            "id": order.id,
-            "status": order.get_status_display(),
-            "payment_type": order.get_payment_type_display(),
-            "total_price": order.total_price,
-            "responsible_restaurant": order.responsible_restaurant,
-            "firstname": order.firstname,
-            "lastname": order.lastname,
-            "phonenumber": order.phonenumber,
-            "address": order.address,
-            "comment": order.comment,
-            "restaurants": restaurants_with_coords,
-        }
         orders_items.append(order_items)
     return render(
         request,
