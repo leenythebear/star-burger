@@ -60,4 +60,5 @@ def get_distance(customer_coordinates, restaurant_coordinates):
     for coord in [customer_lat, customer_lon, restaurant_lat, restaurant_lon]:
         if coord is None:
             return "Ошибка определения координат"
-    return distance.distance(customer_coordinates, restaurant_coordinates)
+    distance_between = (round(distance.distance(customer_coordinates, restaurant_coordinates).km, 1))
+    return distance_between

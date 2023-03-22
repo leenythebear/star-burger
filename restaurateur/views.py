@@ -151,7 +151,7 @@ def view_orders(request):
                 else:
                     restaurant_with_coords = {
                         "name": restaurant[0],
-                        "distance": round(distance.km, 1),
+                        "distance": distance,
                     }
                 restaurants_with_coords.append(restaurant_with_coords)
 
