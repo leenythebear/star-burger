@@ -137,16 +137,13 @@ def view_orders(request):
                     restaurant[1]
                 )
                 distance = get_distance(customer_coords, restaurant_coords)  # Calculate distance
-                if isinstance(distance, str):
-                    restaurant_with_coords = {
-                        "name": restaurant[0],
-                        "distance_error": distance,
-                    }
-                else:
-                    restaurant_with_coords = {
-                        "name": restaurant[0],
-                        "distance": distance,
-                    }
+                # if isinstance(distance, str):
+                #     restaurant_with_coords = {
+                #         "name": restaurant[0],
+                #         "distance_error": distance,
+                #     }
+                # else:
+                restaurant_with_coords = {"name": restaurant[0], "distance": distance}
                 restaurants_with_coords.append(restaurant_with_coords)
         order_items = OrderItemsSerializer(order).data
         order_items['restaurants'] = restaurants_with_coords

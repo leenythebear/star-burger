@@ -43,8 +43,8 @@
             <summary>Может быть приготовлен ресторанами:</summary>
             <ul>
               {% for restaurant in item.restaurants %}
-              {% if restaurant.distance_error %}
-            <li>{{restaurant.distance_error}} </li>
+              {% if restaurant.distance == None %}
+              Ошибка определения координат
               {% else %}
               <li>{{ restaurant.name }} - {{restaurant.distance}} км </li>
               {% endif %}
