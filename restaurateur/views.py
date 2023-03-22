@@ -123,26 +123,19 @@ def view_orders(request):
         .exclude(status=Order.FINISHED)
         .order_by("status")
     )
-    orders_items = []
-    for order in orders:
-        restaurants = set()
-        restaurants_with_coords = []
-        if not order.responsible_restaurant:
-            customer_coords = get_coordinates_from_db_or_api(order.address)
-            for product in order.products.all():
-                available_restaurants = RestaurantMenuItem.objects.filter(
-                    product=product.product
-                ).values_list("restaurant__name", "restaurant__address")
 
-                if not restaurants:
-                    restaurants = set(available_restaurants)
-                else:
-                    restaurants &= set(available_restaurants)
-            for restaurant in restaurants:
+    orders_items = []
+
+    for order in orders:
+        restaurants_with_coords = []
+        if not order.responsible_restaurant:  # Checking if a restaurant is assigned
+            customer_coords = get_coordinates_from_db_or_api(order.address)    # Look for available restaurants
+            available_restaurants = order.available_restaurants()
+            for restaurant in available_restaurants:
                 restaurant_coords = get_coordinates_from_db_or_api(
                     restaurant[1]
                 )
-                distance = get_distance(customer_coords, restaurant_coords)
+                distance = get_distance(customer_coords, restaurant_coords)  # Calculate distance
                 if isinstance(distance, str):
                     restaurant_with_coords = {
                         "name": restaurant[0],

@@ -185,6 +185,18 @@ class Order(models.Model):
     def __str__(self):
         return f"{self.firstname}  {self.lastname}"
 
+    def available_restaurants(self):
+        restaurants = set()
+        for product in self.products.all():
+            available_restaurants = RestaurantMenuItem.objects.filter(
+                product=product.product
+            ).values_list("restaurant__name", "restaurant__address")
+            if not restaurants:
+                restaurants = set(available_restaurants)
+            else:
+                restaurants &= set(available_restaurants)
+        return restaurants
+
     class Meta:
         verbose_name = "заказ"
         verbose_name_plural = "заказы"
