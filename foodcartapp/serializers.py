@@ -32,7 +32,7 @@ class OrderSerializer(ModelSerializer):
 class OrderItemsSerializer(ModelSerializer):
     status = serializers.CharField(source='get_status_display')
     payment_type = serializers.CharField(source='get_payment_type_display')
-    responsible_restaurant = serializers.CharField(source='responsible_restaurant.name')
+    responsible_restaurant = serializers.CharField(source='responsible_restaurant.name', default='')
 
     class Meta:
         model = Order
