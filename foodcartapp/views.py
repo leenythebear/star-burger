@@ -7,7 +7,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
 from .models import Product, Order, OrderProducts
-from .serializers import OrderSerializer
+from .serializers import OrderSerializer, OrderProductsSerializer
 
 
 def banners_list_api(request):
@@ -73,23 +73,21 @@ def product_list_api(request):
 
 
 @api_view(["POST"])
+@transaction.atomic
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
-    serializer = OrderSerializer(data=request.data)
+    order = request.data
+    products = order.pop('products')
+
+    serializer = OrderSerializer(data=order)
     serializer.is_valid(raise_exception=True)
-    with transaction.atomic():
-        saved_order = Order.objects.create(
-            firstname=serializer.validated_data["firstname"],
-            lastname=serializer.validated_data["lastname"],
-            phonenumber=serializer.validated_data["phonenumber"],
-            address=serializer.validated_data["address"],
-        )
-        for product in serializer.validated_data["products"]:
-            OrderProducts.objects.create(
-                order=saved_order,
-                product=product["product"],
-                quantity=product["quantity"],
-                price=product["product"].price,
-            )
+    saved_order = serializer.save()
+
+    for product in products:
+        product['order'] = saved_order.id
+        serializer = OrderProductsSerializer(data=product)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
     serializer = OrderSerializer(saved_order)
     return Response(serializer.data)
