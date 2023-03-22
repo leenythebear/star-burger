@@ -38,16 +38,14 @@
         <td>
           {% if item.responsible_restaurant %}
           Готовит: {{ item.responsible_restaurant }}
+          {% elif not item.restaurants %}
+          Ошибка определения координат
           {% else %}
           <details>
             <summary>Может быть приготовлен ресторанами:</summary>
             <ul>
               {% for restaurant in item.restaurants %}
-              {% if restaurant.distance == None %}
-              Ошибка определения координат
-              {% else %}
               <li>{{ restaurant.name }} - {{restaurant.distance}} км </li>
-              {% endif %}
               {% endfor %}
             </ul>
           </details>
