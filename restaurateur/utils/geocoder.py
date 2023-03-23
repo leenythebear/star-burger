@@ -40,7 +40,7 @@ def get_coordinates_from_db_or_api(address):
         pass
     try:
         coords = fetch_coordinates(api_key, address)
-    except requests.exceptions.HTTPError:
+    except (requests.exceptions.HTTPError, KeyError):
         coords = None
 
     address_obj = Address(address=address, updated_at=timezone.now())
