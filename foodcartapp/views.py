@@ -77,17 +77,7 @@ def product_list_api(request):
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
     order = request.data
-    products = order.pop('products')
-
     serializer = OrderSerializer(data=order)
     serializer.is_valid(raise_exception=True)
-    saved_order = serializer.save()
-
-    for product in products:
-        product['order'] = saved_order.id
-        serializer = OrderProductsSerializer(data=product)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-    serializer = OrderSerializer(saved_order)
+    serializer.save()
     return Response(serializer.data)

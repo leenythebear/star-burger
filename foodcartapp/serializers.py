@@ -7,14 +7,12 @@ from foodcartapp.models import OrderProducts, Order
 class OrderProductsSerializer(ModelSerializer):
     class Meta:
         model = OrderProducts
-        fields = ["order", "product", "quantity"]
-
-    def create(self, validated_data):
-        price = validated_data['product'].price
-        return OrderProducts.objects.create(price=price, **validated_data)
+        fields = ["product", "quantity"]
 
 
 class OrderSerializer(ModelSerializer):
+    products = OrderProductsSerializer(many=True, write_only=True)
+
     class Meta:
         model = Order
         fields = [
@@ -22,10 +20,16 @@ class OrderSerializer(ModelSerializer):
             "lastname",
             "phonenumber",
             "address",
+            "products",
         ]
 
     def create(self, validated_data):
+        products = validated_data.pop('products')
+
         order = Order.objects.create(**validated_data)
+        for product in products:
+            price = product['product'].price
+            OrderProducts.objects.create(order=order, price=price, **product)
         return order
 
 
