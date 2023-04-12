@@ -58,7 +58,16 @@ pip install -r requirements.txt
 ```sh
 SECRET_KEY=django-insecure-0if40nf4nf93n4
 YANDEX_API_KEY=api-ключ
+DB_URL=postgres://USER:PASSWORD@HOST:PORT/NAME
 ```
+где:
+
+- USER - имя пользователя БД,
+- PASSWORD - пароль для доступа к БД,
+- HOST - хост БД,
+- PORT - порт БД,
+- NAME - имя БД.
+
 
 Создайте файл базы данных SQLite и отмигрируйте её следующей командой:
 
