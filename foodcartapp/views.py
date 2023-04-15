@@ -76,8 +76,10 @@ def product_list_api(request):
 @transaction.atomic
 @permission_classes((permissions.AllowAny,))
 def register_order(request):
-    order = request.data
-    serializer = OrderSerializer(data=order)
-    serializer.is_valid(raise_exception=True)
-    serializer.save()
-    return Response(serializer.data)
+    a = 1 / 0
+    return a
+    # order = request.data
+    # serializer = OrderSerializer(data=order)
+    # serializer.is_valid(raise_exception=True)
+    # serializer.save()
+    # return Response(serializer.data)
