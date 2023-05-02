@@ -139,7 +139,6 @@ REST_FRAMEWORK = {
 
 ROLLBAR = {
     'access_token': env('ROLLBAR_TOKEN'),
-    'environment': env('CURRENT_ENVIRONMENT'),
-    'code_version': '1.0',
+    'environment': env('CURRENT_ENVIRONMENT', 'development'),
     'root': BASE_DIR,
 }
