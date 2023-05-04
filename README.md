@@ -153,7 +153,7 @@ YANDEX_API_KEY=api-ключ
 ROLLBAR_ENABLED=режим логгирования (True - включает логгирование, False - выключает )
 ROLLBAR_TOKEN=токен для сервиса [Rollbar](https://rollbar.com/)
 DEBUG=дебаг-режим
-ROLLBAR_TOKEN=переменная, хранящая название окружения (production, development)
+CURRENT_ENVIRONMENT=переменная, хранящая название окружения (production, development)
 DB_URL=postgres://USER:PASSWORD@HOST:PORT/NAME=переменная для подключения к БД
 ```
 где:
