@@ -1,0 +1,2843 @@
+[
+{
+    "model": "foodcartapp.restaurant",
+    "pk": 1,
+    "fields": {
+        "name": "Star Burger Арбат",
+        "address": "Москва, ул. Новый Арбат, 15",
+        "contact_phone": "+7 (967) 157-44-13"
+    }
+},
+{
+    "model": "foodcartapp.restaurant",
+    "pk": 2,
+    "fields": {
+        "name": "Star Burger Цветной",
+        "address": "Москва, Цветной бульвар, 11с2",
+        "contact_phone": "+7 (929) 949-55-36"
+    }
+},
+{
+    "model": "foodcartapp.restaurant",
+    "pk": 3,
+    "fields": {
+        "name": "Star Burger Европейский",
+        "address": "Москва, пл. Киевского Вокзала, 2",
+        "contact_phone": "+7 (929) 680-47-58"
+    }
+},
+{
+    "model": "foodcartapp.productcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Бургер"
+    }
+},
+{
+    "model": "foodcartapp.product",
+    "pk": 1,
+    "fields": {
+        "name": "Стейкхаус",
+        "category": 1,
+        "price": "269.00",
+        "image": "steak.jpg",
+        "special_status": false,
+        "description": "Стейкхаус – это сочетание нашей фирменной, приготовленной на огне 100% говядины с ломтиками бекона и соусом «Барбекю», майонезом, листьями свежего салата, помидором и хрустящим луком"
+    }
+},
+{
+    "model": "foodcartapp.product",
+    "pk": 2,
+    "fields": {
+        "name": "Лонг Чизбургер",
+        "category": 1,
+        "price": "219.00",
+        "image": "long_chiz.jpg",
+        "special_status": false,
+        "description": "Лонг Чизбургер – эталон в коллекции чизбургеров! Два приготовленных на огне бифштекса с двумя ломтиками слегка расплавленного сыра, хрустящими огурчиками, рубленым луком, горчицей и кетчупом"
+    }
+},
+{
+    "model": "foodcartapp.product",
+    "pk": 3,
+    "fields": {
+        "name": "Тройной Воппер",
+        "category": 1,
+        "price": "369.00",
+        "image": "triple_vopper.jpg",
+        "special_status": false,
+        "description": "ВОППЕР® — это вкуснейшая приготовленная на огне 100% говядина с сочными помидорами, свежим нарезанным листовым салатом, густым майонезом, хрустящими маринованными огурчиками и свежим луком"
+    }
+},
+{
+    "model": "foodcartapp.product",
+    "pk": 4,
+    "fields": {
+        "name": "Беконайзер",
+        "category": 1,
+        "price": "319.00",
+        "image": "beconizer.jpg",
+        "special_status": false,
+        "description": "Встречай самый внушительный бургер в коллекции Бургер Кинг. Много мяса, много бекона и много сыра - все, как ты любишь, и ничего лишнего!"
+    }
+},
+{
+    "model": "foodcartapp.restaurantmenuitem",
+    "pk": 1,
+    "fields": {
+        "restaurant": 1,
+        "product": 1,
+        "availability": true
+    }
+},
+{
+    "model": "foodcartapp.restaurantmenuitem",
+    "pk": 2,
+    "fields": {
+        "restaurant": 2,
+        "product": 2,
+        "availability": true
+    }
+},
+{
+    "model": "foodcartapp.restaurantmenuitem",
+    "pk": 3,
+    "fields": {
+        "restaurant": 3,
+        "product": 3,
+        "availability": true
+    }
+},
+{
+    "model": "foodcartapp.restaurantmenuitem",
+    "pk": 4,
+    "fields": {
+        "restaurant": 1,
+        "product": 4,
+        "availability": true
+    }
+},
+{
+    "model": "foodcartapp.restaurantmenuitem",
+    "pk": 9,
+    "fields": {
+        "restaurant": 2,
+        "product": 1,
+        "availability": true
+    }
+},
+{
+    "model": "foodcartapp.order",
+    "pk": 51,
+    "fields": {
+        "firstname": "Чопопало",
+        "lastname": "Иванова",
+        "phonenumber": "+79836658844",
+        "address": "Образцова, 38",
+        "status": "CREATED",
+        "comment": "",
+        "created_at": "2023-03-26T08:59:22.829Z",
+        "called_at": null,
+        "delivered_at": null,
+        "payment_type": "NOT_CHOSEN",
+        "responsible_restaurant": null
+    }
+},
+{
+    "model": "foodcartapp.order",
+    "pk": 52,
+    "fields": {
+        "firstname": "Елена",
+        "lastname": "Lennon",
+        "phonenumber": "+79836658844",
+        "address": "Москва, ул. Новый Арбат, 15",
+        "status": "CREATED",
+        "comment": "",
+        "created_at": "2023-03-26T08:59:48.001Z",
+        "called_at": null,
+        "delivered_at": null,
+        "payment_type": "NOT_CHOSEN",
+        "responsible_restaurant": null
+    }
+},
+{
+    "model": "foodcartapp.order",
+    "pk": 53,
+    "fields": {
+        "firstname": "Максым",
+        "lastname": "Всякий",
+        "phonenumber": "+79836658844",
+        "address": "Красная площадь, 1",
+        "status": "PREPARING",
+        "comment": "",
+        "created_at": "2023-03-26T09:01:58Z",
+        "called_at": null,
+        "delivered_at": null,
+        "payment_type": "CARD",
+        "responsible_restaurant": 1
+    }
+},
+{
+    "model": "foodcartapp.orderproducts",
+    "pk": 46,
+    "fields": {
+        "order": 51,
+        "product": 4,
+        "quantity": 1,
+        "price": "319.00"
+    }
+},
+{
+    "model": "foodcartapp.orderproducts",
+    "pk": 47,
+    "fields": {
+        "order": 52,
+        "product": 3,
+        "quantity": 1,
+        "price": "369.00"
+    }
+},
+{
+    "model": "foodcartapp.orderproducts",
+    "pk": 48,
+    "fields": {
+        "order": 52,
+        "product": 1,
+        "quantity": 1,
+        "price": "269.00"
+    }
+},
+{
+    "model": "foodcartapp.orderproducts",
+    "pk": 49,
+    "fields": {
+        "order": 53,
+        "product": 1,
+        "quantity": 1,
+        "price": "269.00"
+    }
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$260000$Du6wvTZkPNmPAJ6uAK5StX$pRbYbY7bghjhQxHpshTmjev9ZZ8WvToBBMJvekgeNJc=",
+        "last_login": "2023-03-23T14:19:09.687Z",
+        "is_superuser": true,
+        "username": "leeny_the_bear",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-03-02T10:10:41.629Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ch8hl0hrp0nfi1j6qm7und9ntb6k1vtj",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlnx-oNNSZ8zWLsbLw6gRIqTCnF3iJQC2jcz76UybmvNWytLHgd1UUadfjdCfpRpB8Mdp9useZ7WZSS9K_qgTffzUJ7Xw_07qNjqt-ZzSoUcFMcexIXOegAfrZAHx0bAJhC0aJyVEInERNMxCkUOEpNR7w_Qrjei:1paF82:SEx4GA5ivoZUMtVW79oWL3R4dJ7GwQw-i2i3V07CjoY",
+        "expire_date": "2023-03-23T12:12:14.463Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "vpbj8siz9jcmbhtv9m8h8fcpzs3vp08m",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlnx-oNNSZ8zWLsbLw6gRIqTCnF3iJQC2jcz76UybmvNWytLHgd1UUadfjdCfpRpB8Mdp9useZ7WZSS9K_qgTffzUJ7Xw_07qNjqt-ZzSoUcFMcexIXOegAfrZAHx0bAJhC0aJyVEInERNMxCkUOEpNR7w_Qrjei:1pfLmX:vN2WIi-6TnX4gA9e6cMYFURV9TfucPAUDNS-wxVpK_w",
+        "expire_date": "2023-04-06T14:19:09.775Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 1,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 15",
+        "lat": 55.752141,
+        "lon": 37.59242,
+        "updated_at": "2023-03-14T12:50:46.664Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 2,
+    "fields": {
+        "address": "Москва, пл. Киевского Вокзала, 2",
+        "lat": 55.744637,
+        "lon": 37.566072,
+        "updated_at": "2023-03-14T12:50:47.596Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 3,
+    "fields": {
+        "address": "Москва, Цветной бульвар, 11с2",
+        "lat": 55.770076,
+        "lon": 37.620429,
+        "updated_at": "2023-03-14T12:50:48.115Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 4,
+    "fields": {
+        "address": "г. Москва, ул. Образцова, д. 38",
+        "lat": 55.792422,
+        "lon": 37.610053,
+        "updated_at": "2023-03-14T13:01:30.034Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 5,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 115",
+        "lat": 55.752658,
+        "lon": 37.587227,
+        "updated_at": "2023-03-14T13:06:51.549Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 6,
+    "fields": {
+        "address": "Красная площадь, 1",
+        "lat": 55.755246,
+        "lon": 37.617779,
+        "updated_at": "2023-03-20T07:31:11.489Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 7,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 77",
+        "lat": 55.752658,
+        "lon": 37.587227,
+        "updated_at": "2023-03-22T15:25:26.265Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 8,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 72",
+        "lat": 55.752658,
+        "lon": 37.587227,
+        "updated_at": "2023-03-22T19:14:05.273Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 9,
+    "fields": {
+        "address": "Мрвпвпваыб 5",
+        "lat": null,
+        "lon": null,
+        "updated_at": "2023-03-22T19:31:10.515Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 10,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 2",
+        "lat": 55.753245,
+        "lon": 37.599426,
+        "updated_at": "2023-03-22T19:54:02.294Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 11,
+    "fields": {
+        "address": "Абырвалг, 15",
+        "lat": null,
+        "lon": null,
+        "updated_at": "2023-03-22T20:03:49.070Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 12,
+    "fields": {
+        "address": "Образцова, 38",
+        "lat": 55.792422,
+        "lon": 37.610053,
+        "updated_at": "2023-03-22T20:22:27.288Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 13,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 177",
+        "lat": 55.752658,
+        "lon": 37.587227,
+        "updated_at": "2023-03-23T08:52:23.731Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 14,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 33",
+        "lat": 55.752004,
+        "lon": 37.576133,
+        "updated_at": "2023-03-23T08:52:24.549Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 15,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 13",
+        "lat": null,
+        "lon": null,
+        "updated_at": "2023-03-23T08:54:09.839Z"
+    }
+},
+{
+    "model": "addresses.address",
+    "pk": 16,
+    "fields": {
+        "address": "Москва, ул. Новый Арбат, 11",
+        "lat": 55.752298,
+        "lon": 37.596094,
+        "updated_at": "2023-03-23T14:19:21.198Z"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2023-03-02T10:20:46.865Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "1",
+        "object_repr": "Star Burger Арбат",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2023-03-02T10:21:25.558Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2023-03-02T10:21:53.183Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2023-03-02T10:23:22.381Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "productcategory"
+        ],
+        "object_id": "1",
+        "object_repr": "Бургер",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2023-03-02T10:36:29.784Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "1",
+        "object_repr": "Стейкхаус",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2023-03-02T10:37:52.775Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "2",
+        "object_repr": "Лонг Чизбургер",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2023-03-02T10:39:08.248Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "3",
+        "object_repr": "Тройной Воппер",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0415\\u0432\\u0440\\u043e\\u043f\\u0435\\u0439\\u0441\\u043a\\u0438\\u0439 - \\u0422\\u0440\\u043e\\u0439\\u043d\\u043e\\u0439 \\u0412\\u043e\\u043f\\u043f\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2023-03-02T10:40:22.957Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "4",
+        "object_repr": "Беконайзер",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0411\\u0435\\u043a\\u043e\\u043d\\u0430\\u0439\\u0437\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2023-03-02T10:41:00.286Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0415\\u0432\\u0440\\u043e\\u043f\\u0435\\u0439\\u0441\\u043a\\u0438\\u0439 - \\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2023-03-02T10:41:15.480Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0411\\u0435\\u043a\\u043e\\u043d\\u0430\\u0439\\u0437\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2023-03-02T10:41:33.575Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "1",
+        "object_repr": "Star Burger Арбат",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0422\\u0440\\u043e\\u0439\\u043d\\u043e\\u0439 \\u0412\\u043e\\u043f\\u043f\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2023-03-02T10:41:42.724Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.677Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "6",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.702Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "5",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.719Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "4",
+        "object_repr": "Алена  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.738Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "3",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.755Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "2",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2023-03-07T09:21:28.773Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "1",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.873Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "12",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.905Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "11",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.930Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "10",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.954Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "9",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.980Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "8",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2023-03-07T10:27:41.999Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "7",
+        "object_repr": "Тимур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2023-03-08T15:22:15.735Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"order products\", \"object\": \"\\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441 1\", \"fields\": [\"\\u0426\\u0435\\u043d\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2023-03-08T15:22:35.499Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"order products\", \"object\": \"\\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441 1\", \"fields\": [\"\\u0426\\u0435\\u043d\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2023-03-09T07:40:00.006Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "1",
+        "object_repr": "Стейкхаус",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0426\\u0435\\u043d\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2023-03-09T07:51:59.064Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "1",
+        "object_repr": "Стейкхаус",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0426\\u0435\\u043d\\u0430\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2023-03-09T12:09:30.414Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2023-03-09T12:09:36.987Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2023-03-09T12:30:19.138Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2023-03-09T12:30:34.018Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "15",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2023-03-09T12:35:00.244Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "18",
+        "object_repr": "Чопопалох  Андреева",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2023-03-09T13:04:30.251Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2023-03-09T18:09:42.725Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "20",
+        "object_repr": "Лип  Васильевич",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2023-03-09T18:43:31.890Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "19",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0430\\u0440\\u0438\\u0439\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2023-03-09T18:43:57.545Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "16",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0430\\u0440\\u0438\\u0439\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2023-03-09T19:19:29.662Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "13",
+        "object_repr": "Амур  Иванов",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2023-03-09T19:19:39.201Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "14",
+        "object_repr": "Тимур  Ибанов",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.151Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "20",
+        "object_repr": "Лип  Васильевич",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.183Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "19",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.206Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "18",
+        "object_repr": "Чопопалох  Андреева",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.232Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "17",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.250Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "16",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.267Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "15",
+        "object_repr": "Василий  Васильевич",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.285Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "14",
+        "object_repr": "Тимур  Ибанов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2023-03-10T13:38:13.303Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "13",
+        "object_repr": "Амур  Иванов",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2023-03-10T13:39:14.461Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"order products\", \"object\": \"\\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440 1\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2023-03-10T13:40:02.852Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\", \"fields\": [\"\\u0412 \\u043f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0435\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2023-03-10T13:40:19.823Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 2,
+        "change_message": "[{\"deleted\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2023-03-10T13:41:21.296Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"order products\", \"object\": \"\\u0422\\u0440\\u043e\\u0439\\u043d\\u043e\\u0439 \\u0412\\u043e\\u043f\\u043f\\u0435\\u0440 1\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2023-03-10T15:59:06.271Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"order products\", \"object\": \"\\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441 1\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2023-03-11T13:35:15.389Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0442\\u0432\\u0435\\u0442\\u0441\\u0442\\u0432\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2023-03-11T13:35:24.984Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2023-03-11T13:37:00.246Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2023-03-11T13:38:28.121Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 57,
+    "fields": {
+        "action_time": "2023-03-11T13:45:18.046Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елен  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 58,
+    "fields": {
+        "action_time": "2023-03-11T13:45:31.284Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 59,
+    "fields": {
+        "action_time": "2023-03-11T15:25:34.688Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 60,
+    "fields": {
+        "action_time": "2023-03-11T15:27:16.611Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 61,
+    "fields": {
+        "action_time": "2023-03-11T15:27:41.730Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 62,
+    "fields": {
+        "action_time": "2023-03-11T15:27:46.568Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 63,
+    "fields": {
+        "action_time": "2023-03-11T15:27:50.881Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 64,
+    "fields": {
+        "action_time": "2023-03-11T15:27:56.675Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 65,
+    "fields": {
+        "action_time": "2023-03-11T15:28:15.461Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 66,
+    "fields": {
+        "action_time": "2023-03-11T16:20:34.950Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "23",
+        "object_repr": "Jtgfkjgc,  wsefbk;wjbrv",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"order products\", \"object\": \"\\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440 1\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 67,
+    "fields": {
+        "action_time": "2023-03-11T16:21:10.453Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 68,
+    "fields": {
+        "action_time": "2023-03-14T06:58:03.037Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0434\\u0440\\u0435\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 69,
+    "fields": {
+        "action_time": "2023-03-14T12:49:13.594Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0434\\u0440\\u0435\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 70,
+    "fields": {
+        "action_time": "2023-03-14T12:58:36.724Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0415\\u0432\\u0440\\u043e\\u043f\\u0435\\u0439\\u0441\\u043a\\u0438\\u0439 - \\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440\", \"fields\": [\"\\u0412 \\u043f\\u0440\\u043e\\u0434\\u0430\\u0436\\u0435\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 71,
+    "fields": {
+        "action_time": "2023-03-14T12:58:48.403Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[{\"deleted\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0415\\u0432\\u0440\\u043e\\u043f\\u0435\\u0439\\u0441\\u043a\\u0438\\u0439 - \\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 72,
+    "fields": {
+        "action_time": "2023-03-14T12:58:49.078Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "3",
+        "object_repr": "Star Burger Европейский",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 73,
+    "fields": {
+        "action_time": "2023-03-14T12:59:27.372Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "2",
+        "object_repr": "Star Burger Цветной",
+        "action_flag": 2,
+        "change_message": "[{\"deleted\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0411\\u0435\\u043a\\u043e\\u043d\\u0430\\u0439\\u0437\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 74,
+    "fields": {
+        "action_time": "2023-03-14T12:59:53.328Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "restaurant"
+        ],
+        "object_id": "1",
+        "object_repr": "Star Burger Арбат",
+        "action_flag": 2,
+        "change_message": "[{\"deleted\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0422\\u0440\\u043e\\u0439\\u043d\\u043e\\u0439 \\u0412\\u043e\\u043f\\u043f\\u0435\\u0440\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 75,
+    "fields": {
+        "action_time": "2023-03-14T13:02:07.271Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "24",
+        "object_repr": "Алена  Корнеева",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 76,
+    "fields": {
+        "action_time": "2023-03-14T13:03:00.149Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "24",
+        "object_repr": "Алена  Корнеева",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 77,
+    "fields": {
+        "action_time": "2023-03-14T13:03:10.338Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "24",
+        "object_repr": "Алена  Корнеева",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 78,
+    "fields": {
+        "action_time": "2023-03-14T13:03:59.263Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 79,
+    "fields": {
+        "action_time": "2023-03-14T13:04:49.970Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"name\": \"\\u0442\\u043e\\u0432\\u0430\\u0440 \\u0432 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0435\", \"object\": \"\\u0411\\u0435\\u043a\\u043e\\u043d\\u0430\\u0439\\u0437\\u0435\\u0440 1\", \"fields\": [\"\\u041f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\"]}}, {\"changed\": {\"name\": \"\\u0442\\u043e\\u0432\\u0430\\u0440 \\u0432 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0435\", \"object\": \"\\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441 1\", \"fields\": [\"\\u041f\\u0440\\u043e\\u0434\\u0443\\u043a\\u0442\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 80,
+    "fields": {
+        "action_time": "2023-03-14T13:06:50.354Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 81,
+    "fields": {
+        "action_time": "2023-03-14T13:11:35.398Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 82,
+    "fields": {
+        "action_time": "2023-03-14T13:11:54.569Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 83,
+    "fields": {
+        "action_time": "2023-03-14T13:12:06.819Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "24",
+        "object_repr": "Алена  Корнеева",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 84,
+    "fields": {
+        "action_time": "2023-03-14T14:01:19.634Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 85,
+    "fields": {
+        "action_time": "2023-03-14T14:05:03.964Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 86,
+    "fields": {
+        "action_time": "2023-03-14T14:07:23.104Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 87,
+    "fields": {
+        "action_time": "2023-03-14T14:22:01.433Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 88,
+    "fields": {
+        "action_time": "2023-03-14T14:22:09.477Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 89,
+    "fields": {
+        "action_time": "2023-03-14T14:44:37.623Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 90,
+    "fields": {
+        "action_time": "2023-03-14T14:58:45.503Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "23",
+        "object_repr": "Jtgfkjgc,  wsefbk;wjbrv",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 91,
+    "fields": {
+        "action_time": "2023-03-14T15:00:50.969Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "23",
+        "object_repr": "Jtgfkjgc,  wsefbk;wjbrv",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 92,
+    "fields": {
+        "action_time": "2023-03-14T15:01:15.710Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "23",
+        "object_repr": "Jtgfkjgc,  wsefbk;wjbrv",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 93,
+    "fields": {
+        "action_time": "2023-03-20T07:32:01.294Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "25",
+        "object_repr": "Василий  Пупкин",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 94,
+    "fields": {
+        "action_time": "2023-03-20T08:06:42.992Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 95,
+    "fields": {
+        "action_time": "2023-03-20T08:23:58.324Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "26",
+        "object_repr": "Дима  Самошкин",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 96,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.787Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "28",
+        "object_repr": "Щука  Антонова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 97,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.808Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "27",
+        "object_repr": "Чопопало  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 98,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.826Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "26",
+        "object_repr": "Дима  Самошкин",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 99,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.843Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "25",
+        "object_repr": "Василий  Пупкин",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 100,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.862Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "24",
+        "object_repr": "Алена  Корнеева",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 101,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.880Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "23",
+        "object_repr": "Jtgfkjgc,  wsefbk;wjbrv",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 102,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.897Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "22",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 103,
+    "fields": {
+        "action_time": "2023-03-22T14:23:36.915Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "21",
+        "object_repr": "Елена  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 104,
+    "fields": {
+        "action_time": "2023-03-22T19:06:00.093Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "29",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 105,
+    "fields": {
+        "action_time": "2023-03-22T19:18:32.390Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "30",
+        "object_repr": "Вася  Стрельников",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 106,
+    "fields": {
+        "action_time": "2023-03-22T19:18:43.437Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "29",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 107,
+    "fields": {
+        "action_time": "2023-03-22T19:18:49.885Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "29",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 108,
+    "fields": {
+        "action_time": "2023-03-22T19:53:31.698Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "1",
+        "object_repr": "Стейкхаус",
+        "action_flag": 2,
+        "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0426\\u0432\\u0435\\u0442\\u043d\\u043e\\u0439 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 109,
+    "fields": {
+        "action_time": "2023-03-22T20:22:25.759Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "32",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 110,
+    "fields": {
+        "action_time": "2023-03-22T20:33:11.145Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "32",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 111,
+    "fields": {
+        "action_time": "2023-03-22T20:33:32.319Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "33",
+        "object_repr": "John  Lennon",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 112,
+    "fields": {
+        "action_time": "2023-03-23T14:19:56.406Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "product"
+        ],
+        "object_id": "1",
+        "object_repr": "Стейкхаус",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 113,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.006Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "50",
+        "object_repr": "Чопопало  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 114,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.029Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "49",
+        "object_repr": "Акакий  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 115,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.047Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "48",
+        "object_repr": "Акакий  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 116,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.066Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "47",
+        "object_repr": "Акакий  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 117,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.083Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "46",
+        "object_repr": "Чопопалох  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 118,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.102Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "45",
+        "object_repr": "Чопопало  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 119,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.121Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "44",
+        "object_repr": "Чопопало  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 120,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.142Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "43",
+        "object_repr": "Marusya  Иванова",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 121,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.161Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "42",
+        "object_repr": "Максым  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 122,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.180Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "41",
+        "object_repr": "Чопопало  Андреева",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 123,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.199Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "40",
+        "object_repr": "Чопопало  wsefbk;wjbrv",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 124,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.218Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "39",
+        "object_repr": "Чопопалох  Андреева",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 125,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.238Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "38",
+        "object_repr": "Чопопалох  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 126,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.257Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "37",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 127,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.275Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "36",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 128,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.292Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "35",
+        "object_repr": "Елена  Андреева",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 129,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.309Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "34",
+        "object_repr": "Дмитрий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 130,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.327Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "33",
+        "object_repr": "John  Lennon",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 131,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.345Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "32",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 132,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.363Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "31",
+        "object_repr": "Чопопало  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 133,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.379Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "30",
+        "object_repr": "Вася  Стрельников",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 134,
+    "fields": {
+        "action_time": "2023-03-26T08:59:00.397Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "29",
+        "object_repr": "Акакий  Всякий",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 135,
+    "fields": {
+        "action_time": "2023-03-26T09:02:39.743Z",
+        "user": [
+            "leeny_the_bear"
+        ],
+        "content_type": [
+            "foodcartapp",
+            "order"
+        ],
+        "object_id": "53",
+        "object_repr": "Максым  Всякий",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u043f\\u043e\\u0441\\u043e\\u0431 \\u043e\\u043f\\u043b\\u0430\\u0442\\u044b\", \"\\u041d\\u0430\\u0437\\u043d\\u0430\\u0447\\u0435\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+    }
+}
+]
