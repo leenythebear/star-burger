@@ -12,4 +12,5 @@ RUN  pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 RUN python3 manage.py collectstatic --no-input
-RUN python3 manage.py migrate
+
+CMD ["python3", "manage.py", "migrate"]
