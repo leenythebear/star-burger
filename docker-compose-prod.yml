@@ -24,6 +24,7 @@ services:
       image: postgres:13.0-alpine
       volumes:
         - db_value:/var/lib/postgresql/data
+      container_name: db
       environment:
         POSTGRES_DB: ${POSTGRES_DB}
         POSTGRES_USER: ${POSTGRES_USER}
