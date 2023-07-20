@@ -50,7 +50,7 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     depends_on:
-      - certbot
+      - nginx
 
 volumes:
   static_value:
