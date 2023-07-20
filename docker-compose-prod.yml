@@ -48,7 +48,7 @@ services:
     command: certonly --standalone --agree-tos --email leenythebear@gmail.com --domains starburger.work.gd
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - ./data/certbot/www:/tmp/letsencrypt
     depends_on:
       - nginx
 
