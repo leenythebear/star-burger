@@ -45,7 +45,7 @@ services:
 
   certbot:
     image: certbot/certbot
-    command: certonly --standalone --agree-tos --email leenythebear@gmail.com --domains starburger.work.gd
+    command: certonly --webroot --agree-tos --renew-by-default --preferred-challenges http-01 --server https://acme-v02.api.letsencrypt.org/directory --text --email leenythebear@gmail.com -w /tmp/letsencrypt -d starburger.work.gd
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/tmp/letsencrypt
