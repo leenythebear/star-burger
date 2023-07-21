@@ -3,7 +3,7 @@
 set -e
 cd /opt/star-burger
 git pull
-
+source .env
 docker compose -f docker-compose-prod.yml up -d
 
 ID_COMMIT=`git --git-dir=/opt/star-burger/.git rev-parse HEAD`
